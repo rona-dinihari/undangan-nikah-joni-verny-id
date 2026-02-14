@@ -1,0 +1,188 @@
+:root {
+  --romantic-pink: #f8bbd0;
+  --romantic-blue: #bbdefb;
+  --dark-pink: #e91e63;
+  --dark-blue: #1976d2;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+.mempelai-name {
+  font-family: "Great Vibes", cursive;
+}
+
+/* Parallax Sections */
+.parallax {
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.section-pink {
+  background-image:
+    linear-gradient(rgba(248, 187, 208, 0.7), rgba(248, 187, 208, 0.7)),
+    url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1920");
+}
+
+.section-blue {
+  background-image:
+    linear-gradient(rgba(187, 222, 251, 0.7), rgba(187, 222, 251, 0.7)),
+    url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1920");
+}
+
+/* Floating Menu */
+.floating-nav {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 25px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  gap: 20px;
+}
+
+.floating-nav a {
+  color: var(--dark-pink);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+.floating-nav a:hover {
+  color: var(--dark-blue);
+}
+
+/* Hero Slideshow Overlay */
+#heroCarousel .carousel-item {
+  height: 100vh;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  z-index: 10;
+}
+
+.mempelai-name {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+
+/* Countdown */
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.countdown-item {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  padding: 10px;
+  border-radius: 10px;
+  min-width: 80px;
+}
+
+/* Live Chat Styling */
+#chat-box {
+  height: 300px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.chat-bubble {
+  background: var(--romantic-blue);
+  padding: 8px 15px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  max-width: 85%;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* QR Button */
+.btn-qr {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--dark-pink);
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Maps Link Styling */
+.map-card {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.map-card:hover {
+  transform: scale(1.02);
+}
+
+.copy-btn {
+  cursor: pointer;
+  color: var(--dark-blue);
+  text-decoration: underline;
+}
+
+/* Carousel Item Background */
+.carousel-item-1 {
+  background: url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1920")
+    center/cover;
+}
+
+.carousel-item-2 {
+  background: url("https://images.unsplash.com/photo-1465495910483-0d6745778738?auto=format&fit=crop&q=80&w=1920")
+    center/cover;
+}
+
+/* Chat Bubble Own Message */
+.chat-bubble-own {
+  background: var(--romantic-pink);
+  align-self: flex-end;
+  margin-left: auto;
+}
