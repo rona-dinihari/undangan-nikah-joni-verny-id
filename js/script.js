@@ -25,9 +25,24 @@ function copyText(text) {
   document.execCommand("copy");
   document.body.removeChild(el);
 
-  $("#toastMsg").text("Nomor rekening berhasil disalin!");
-  const toast = new bootstrap.Toast(document.getElementById("liveToast"));
-  toast.show();
+  showToast("Nomor rekening berhasil disalin!");
+}
+
+// Utility: Show the toast widget with sliding animation
+function showToast(message, duration = 3000) {
+  $("#toastMsg").text(message); // set message
+
+  // Create / reuse Bootstrap toast instance
+  const toastEl = $("#liveToast")[0];
+  const toast = document.getElementById("toastContainer");
+
+  // Bring the container into view
+  $("#toastContainer").removeClass("hide").addClass("show");
+
+  // Hide after a timeout
+  setTimeout(() => {
+    $("#toastContainer").removeClass("show").addClass("hide");
+  }, duration);
 }
 
 // Chat Logic
@@ -38,17 +53,25 @@ $("#sendBtn").on("click", function () {
   if (name && msg) {
     const bubble = `
       <div class="chat-bubble chat-bubble-own">
-          <strong>${name}:</strong><br>${msg}
+        <strong>${name}:</strong><br>${msg}
       </div>
     `;
     $("#chat-box").prepend(bubble);
-    $("#guestName").val("");
-    $("#guestMessage").val("");
+    $("#guestName, #guestMessage").val("");
 
-    $("#toastMsg").text("Terima kasih atas ucapannya!");
-    const toast = new bootstrap.Toast(document.getElementById("liveToast"));
-    toast.show();
+    showToast("Terima kasih atas ucapannya!");
   } else {
     alert("Mohon isi nama dan ucapan Anda.");
+  }
+});
+
+// QR button toggle
+$("#qrButton").on("click", function () {
+  const qrModal = $("#qrModal");
+  // If hidden, show it; otherwise hide.
+  if (qrModal.is(":hidden")) {
+    qrModal.removeClass("hide").css("display", "block").fadeIn(200); // smooth fade in
+  } else {
+    qrModal.fadeOut(200, () => qrModal.addClass("hide")); // fade out then add hide
   }
 });

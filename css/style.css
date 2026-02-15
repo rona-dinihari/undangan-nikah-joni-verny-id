@@ -17,6 +17,11 @@ h2,
   font-family: "Great Vibes", cursive;
 }
 
+/* Keep the existing hide class that turns the modal off */
+.hide {
+  display: none !important;
+}
+
 /* Parallax Sections */
 .parallax {
   height: 100vh;
@@ -120,6 +125,9 @@ h2,
   background: var(--romantic-blue);
   padding: 8px 15px;
   border-radius: 15px;
+  margin-left: auto;
+  margin-top: 0px;
+  margin-right: auto;
   margin-bottom: 10px;
   max-width: 85%;
   animation: fadeIn 0.5s;
@@ -167,6 +175,32 @@ h2,
   cursor: pointer;
   color: var(--dark-blue);
   text-decoration: underline;
+}
+
+/* Full‑screen QR modal (hidden by default) */
+#qrModal {
+  position: fixed; /* positioned relative to the viewport */
+  inset: 0; /* stretches top/right/bottom/left to 100% */
+  width: 100%; /* full width */
+  height: 100%; /* full height */
+  overflow: auto; /* allow scrolling if needed */
+  background: rgba(0, 0, 0, 0.6); /* dark‑transparent backdrop */
+  display: none; /* hidden until button press */
+  z-index: 200; /* below button (z‑1000) and ribbon (z‑2200) */
+}
+
+#qrModal .modal-content {
+  /* Vertically & horizontally center modal children */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* keep text centered */
+}
+
+/* Remove default margin from the image wrapper so that the QR image is also centered */
+#qrModal .py-4 {
+  display: flex;
+  justify-content: center;
 }
 
 /* Carousel Item Background */
@@ -228,4 +262,139 @@ h2,
     height: 28px;
     font-size: 12px;
   }
+}
+
+/* ensure hero carousel fills viewport and items show */
+.carousel,
+.carousel-inner {
+  height: 100vh;
+}
+.carousel-item,
+.carousel-item-1,
+.carousel-item-2 {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block !important;
+  z-index: 1;
+}
+
+/* Section 4: Gift (Transfer) */
+#galeri {
+  background: linear-gradient(
+    135deg,
+    var(--romantic-pink),
+    var(--romantic-blue)
+  );
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Section 5: Ucapan (Live Chat Style) */
+#ucapan {
+  background: linear-gradient(
+    135deg,
+    rgba(187, 222, 251, 0.3),
+    rgba(248, 187, 208, 0.3)
+  ) !important;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#ucapan .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto; /* Added for centering */
+}
+
+/* Add horizontal margins to form elements */
+#ucapan .form-control {
+  border-radius: 15px;
+  border: 2px solid var(--romantic-pink);
+  padding: 12px 20px;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  /* margin: 0 20px; Added horizontal margin */
+  margin-bottom: 1.5rem;
+}
+
+#ucapan .form-control:focus {
+  border-color: var(--dark-pink);
+  box-shadow: 0 0 0 0.2rem rgba(233, 30, 99, 0.25);
+}
+
+#ucapan .btn-primary {
+  border-radius: 15px;
+  background: var(--dark-pink);
+  border: none;
+  padding: 12px 20px;
+  font-weight: 600;
+  margin-top: auto;
+}
+
+#ucapan #sendBtn {
+  margin-bottom: 15px;
+}
+
+#ucapan #guestMessage {
+  margin-bottom: 10px;
+}
+
+#ucapan #guestName {
+  margin-bottom: 15px;
+}
+
+#ucapanCloseBtn {
+  width: 1.8rem; /* Increase width */
+  height: 1.8rem; /* Increase height */
+  font-size: 1.2rem; /* Make the X icon bigger */
+}
+
+/* ✅ Toast widget styling */
+#toastContainer {
+  /* existing positioning & transition */
+  position: fixed;
+  bottom: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.3s ease-in-out;
+  z-index: 2100;
+  background: rgba(0, 0, 0, 0.8); /* darker, more opaque */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: #ffffff; /* text inside the container is white */
+}
+
+#toastContainer {
+  /* Hidden at first – positioned out‑of‑view */
+  position: fixed;
+  bottom: -120px; /* off‑screen */
+  left: 50%; /* center horizontally */
+  transform: translateX(-50%);
+  transition: bottom 3s ease-in-out 3s; /* slide animation */
+  z-index: 2100; /* higher than modal */
+}
+
+/* Show state – slide up to 20 px from the bottom */
+#toastContainer.show {
+  bottom: 25%; /* adjust as needed for desired height */
+}
+
+/* Hide state – slide back down */
+#toastContainer.hide {
+  bottom: -120px;
+}
+
+/* Override default toast body colour so the text stays white */
+.toast-body {
+  color: #f8f9fa; /* light‑grey / off‑white to match the background */
 }

@@ -33,7 +33,12 @@
     <div class="ribbon"><span>Demo</span></div>
 
     <!-- Tombol QR -->
-    <button class="btn-qr" data-bs-toggle="modal" data-bs-target="#qrModal">
+    <button
+      id="qrButton"
+      class="btn-qr"
+      data-bs-toggle="modal"
+      data-bs-target="#qrModal"
+    >
       <i class="fas fa-qrcode"></i>
     </button>
 
@@ -200,7 +205,7 @@
     </section>
 
     <!-- Modal QR -->
-    <div class="modal fade" id="qrModal" tabindex="-1">
+    <div class="modal hide" id="qrModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-center p-4">
           <h3>QR Code Check-In</h3>
@@ -211,19 +216,15 @@
               alt="QR Code"
             />
           </div>
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Tutup
-          </button>
         </div>
       </div>
     </div>
 
     <!-- Toast Container -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div
+      class="toast-container position-fixed bottom-0 end-0 p-3 hide"
+      id="toastContainer"
+    >
       <div
         id="liveToast"
         class="toast"
@@ -233,11 +234,6 @@
       >
         <div class="toast-header bg-primary text-white">
           <strong class="me-auto">Notifikasi</strong>
-          <button
-            type="button"
-            class="btn-close btn-close-white"
-            data-bs-dismiss="toast"
-          ></button>
         </div>
         <div class="toast-body" id="toastMsg">Pesan terkirim!</div>
       </div>
